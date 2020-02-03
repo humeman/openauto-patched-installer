@@ -61,7 +61,7 @@ log "Building OpenAuto"
 cd ~
 mkdir openauto_build
 cd openauto_build
-cmake -DCMAKE_BUILD_TYPE=Release -DRPI3_BUILD=TRUE -DAASDK_INCLUDE_DIRS="/home/pi/aasdk/include" -DAASDK_LIBRARIES="/home/pi/aasdk/lib/libaasdk.so" -DAASDK_PROTO_INCLUDE_DIRS="/home/pi/aasdk_build" -DAASDK_PROTO_LIBRARIES="/home/pi/aasdk/lib/libaasdk_proto.so" .~/openauto
+cmake -DCMAKE_BUILD_TYPE=Release -DRPI3_BUILD=TRUE -DAASDK_INCLUDE_DIRS="/home/$USER/aasdk/include" -DAASDK_LIBRARIES="/home/$USER/aasdk/lib/libaasdk.so" -DAASDK_PROTO_INCLUDE_DIRS="/home/$USER/aasdk_build" -DAASDK_PROTO_LIBRARIES="/home/$USER/aasdk/lib/libaasdk_proto.so" .~/openauto
 error "Couldn't run CMake on OpenAuto!"
 make -j2
 error "Couldn't build OpenAuto!"
