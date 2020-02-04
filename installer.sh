@@ -23,10 +23,10 @@ check () {
     read answer
     if [ $answer == "y" ]
     then
-        return TRUE
+        return 1
     elif [ answer == "n" ]
     then
-        return FALSE
+        return 0
     else
         log "Please enter y/n."
         check "$1"
@@ -38,16 +38,16 @@ check_directory () {
     then
         log "Directory ~/$2 already exists!"
         check "Would you like to overwrite it and start fresh?"
-        if [ $? ]
+        if [ $? == 1 ]
         then
             sudo rm -rf $1
-            return TRUE
+            return 1
         else
             log "Keeping current $2 directory."
-            return FALSE
+            return 0
         fi
     else
-        return TRUE
+        return 1
     fi
 }
 
@@ -65,7 +65,7 @@ error "Couldn't install all dependencies! Is Raspbian up to date?"
 log "Cloning AASDK"
 cd ~
 check_directory aasdk "aasdk"
-if [ $? ]
+if [ $? == 1]
 then
     git clone -b development https://github.com/abraha2d/aasdk aasdk
     error "Couldn't clone AASDK!"
@@ -75,7 +75,7 @@ fi
 log "Building AASDK"
 cd ~
 check_directory aasdk_build "aasdk_build"
-if [ $? ]
+if [ $? == 1]
 then
     mkdir aasdk_build
 fi
@@ -95,7 +95,7 @@ error "Couldn't build ilclient!"
 log "Cloning OpenAuto"
 cd ~
 check_directory openauto "openauto"
-if [ $? ]
+if [ $? == 1]
 then
     git clone -b development https://github.com/humeman/openauto openauto
     error "Couldn't clone openauto!"
@@ -105,7 +105,7 @@ fi
 log "Building OpenAuto"
 cd ~
 check_directory openauto_build "openauto_build"
-if [ $? ]
+if [ $?  == 1]
 then
     mkdir openauto_build
 fi
