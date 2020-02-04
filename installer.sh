@@ -45,6 +45,7 @@ check_directory () {
         else
             log "Keeping current $2 directory."
             return FALSE
+        fi
     else
         return TRUE
     fi
