@@ -2,6 +2,7 @@
 
 # https://github.com/humeman/openauto_patched_installer
 # Tested with Raspbian Buster (2019-09-26 or later), but other versions may work.
+# Commit 12
 
 # Check for error function
 error () {
@@ -105,7 +106,7 @@ fi
 log "Building OpenAuto"
 cd ~
 check_directory openauto_build "openauto_build"
-if [ $?  == 1 ]
+if [ $? == 1 ]
 then
     mkdir openauto_build
 fi
@@ -118,5 +119,11 @@ error "Couldn't build OpenAuto!"
 # Finish up
 log "Done!"
 log "To start OpenAuto in the future, run \e[1msudo ~/openauto/bin/autoapp"
-log "Starting for first time now. If nothing happens when you plug in your phone, please try restarting."
-sudo ~/openauto/bin/autoapp
+log "If nothing happens when you plug in your phone, please try restarting your pi."
+check "Start OpenAuto now?"
+if [ $? == 1]
+then
+    log "Starting OpenAuto..."
+    sudo ~/openauto/bin/autoapp
+fi
+log "Closing now. Enjoy! -humeman"
