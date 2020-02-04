@@ -128,7 +128,7 @@ log "Done!"
 log "To start OpenAuto in the future, run \e[1msudo ~/openauto/bin/autoapp"
 log "If nothing happens when you plug in your phone, please try restarting your pi."
 check "Start OpenAuto now?"
-if [ $? == 1]
+if [ $? == 1 ]
 then
     log "Starting OpenAuto..."
     sudo ~/openauto/bin/autoapp
