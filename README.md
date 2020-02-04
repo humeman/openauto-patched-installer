@@ -1,4 +1,4 @@
-# openauto-patched-installer
+# OAInstaller Script
 Installer for openauto on RPi which patches various issues with newer GSP/touchscreen/device detection issues.
 
 Tested using latest Raspbian Buster (2019-09-26) on 3B
