@@ -4,7 +4,10 @@
 # Tested with Raspbian Buster (2019-09-26 or later), but other versions may work.
 # Commit 12
 
-# Check for error function
+
+# -- FUNCTIONS --
+
+# Checks for non-zero exit code - if so, prints error message specified and closes
 error () {
     if [ $? != 0 ]
     then
@@ -14,11 +17,12 @@ error () {
     fi
 }
 
-# Logging function
+# Echoes with prefix & correct color scheme
 log () {
     echo -e "\e[1m\e[33m[OAInstaller] \e[97m$1\e[0m\e[37m"
 }
 
+# Checks what user wants to do
 check () {
     log "$1 [y/n]"
     read answer
@@ -34,6 +38,7 @@ check () {
     fi
 }
 
+# Checks if a directory exists and asks user if they want to overwrite it
 check_directory () {
     if [ -d $1 ]
     then
@@ -51,6 +56,8 @@ check_directory () {
         return 1
     fi
 }
+
+# -- SCRIPT --
 
 # Update apt
 log "Updating APT"
@@ -116,7 +123,7 @@ error "Couldn't run CMake on OpenAuto!"
 make -j2
 error "Couldn't build OpenAuto!"
 
-# Finish up
+# Finish up & start
 log "Done!"
 log "To start OpenAuto in the future, run \e[1msudo ~/openauto/bin/autoapp"
 log "If nothing happens when you plug in your phone, please try restarting your pi."
