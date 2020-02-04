@@ -24,7 +24,7 @@ check () {
     if [ $answer == "y" ]
     then
         return 1
-    elif [ answer == "n" ]
+    elif [ $answer == "n" ]
     then
         return 0
     else
@@ -65,7 +65,7 @@ error "Couldn't install all dependencies! Is Raspbian up to date?"
 log "Cloning AASDK"
 cd ~
 check_directory aasdk "aasdk"
-if [ $? == 1]
+if [ $? == 1 ]
 then
     git clone -b development https://github.com/abraha2d/aasdk aasdk
     error "Couldn't clone AASDK!"
@@ -75,7 +75,7 @@ fi
 log "Building AASDK"
 cd ~
 check_directory aasdk_build "aasdk_build"
-if [ $? == 1]
+if [ $? == 1 ]
 then
     mkdir aasdk_build
 fi
@@ -95,7 +95,7 @@ error "Couldn't build ilclient!"
 log "Cloning OpenAuto"
 cd ~
 check_directory openauto "openauto"
-if [ $? == 1]
+if [ $? == 1 ]
 then
     git clone -b development https://github.com/humeman/openauto openauto
     error "Couldn't clone openauto!"
@@ -105,7 +105,7 @@ fi
 log "Building OpenAuto"
 cd ~
 check_directory openauto_build "openauto_build"
-if [ $?  == 1]
+if [ $?  == 1 ]
 then
     mkdir openauto_build
 fi
