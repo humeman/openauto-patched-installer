@@ -31,4 +31,4 @@ Please notify me (issues tab) so I can attempt to find a solution.
 
 *humeman's openauto repo uses a fix to VideoService to stop compile errors, found at [abraha2d/openauto](https://github.com/abraha2d/openauto)*
 
-*thanks to humeman for doing the hard work writing the original script and helping me figure out how to get this running on a pi4; my updated version should work on non-pi3 environments since I have removed the pi3 build target
+* thanks to humeman for doing the hard work writing the original script and helping me figure out how to get this running on a pi4; my updated version should work on non-pi3 environments since I have removed the pi3 build target
