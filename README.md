@@ -1,7 +1,7 @@
 # OAInstaller Script
 Installer for openauto on RPi which patches various issues with newer GSP/touchscreen/device detection issues.
 
-Tested using latest Raspbian Buster (2019-09-26) on 3B
+Tested using latest Raspbian Buster (2019-09-26) on 3B (but now supports other environments as of Feb 13 2020 - thank you DreamHazard for telling me about that)
 
 # Installation Instructions
 * Install git, if it's not already installed: `sudo apt install git`
