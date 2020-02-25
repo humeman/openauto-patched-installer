@@ -1,5 +1,6 @@
 # OAInstaller Script
-Installer for openauto on RPi which patches various issues with newer GSP/touchscreen/device detection issues.
+Installer for openauto which patches various issues with newer GSP/touchscreen/device detection issues.
+Should work on any OpenAuto compatible platform, but intended for Raspberry Pi.
 
 Tested using latest Raspbian Buster (2019-09-26) on 3B (but now supports other environments as of Feb 13 2020 - thank you DreamHazard for telling me about that)
 
