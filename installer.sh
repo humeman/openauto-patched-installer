@@ -2,7 +2,7 @@
 
 # https://github.com/humeman/openauto_patched_installer
 # Tested with Raspbian Buster (2019-09-26 or later), but other versions may work.
-# Commit 12
+# Version 10
 
 
 # -- FUNCTIONS --
@@ -66,8 +66,19 @@ error "Couldn't update apt!"
 
 # Install all dependencies
 log "Installing dependencies"
-sudo apt-get install -y libboost-all-dev libusb-1.0.0-dev libssl-dev cmake libprotobuf-dev protobuf-c-compiler protobuf-compiler libqt5multimedia5 libqt5multimedia5-plugins libqt5multimediawidgets5 qtmultimedia5-dev libqt5bluetooth5 libqt5bluetooth5-bin qtconnectivity5-dev pulseaudio librtaudio-dev libraspberrypi-doc libraspberrypi-dev
-error "Couldn't install all dependencies! Is Raspbian up to date?"
+sudo apt install -y libboost-all-dev libusb-1.0.0-dev libssl-dev cmake libprotobuf-dev protobuf-c-compiler protobuf-compiler libqt5multimedia5 libqt5multimedia5-plugins libqt5multimediawidgets5 qtmultimedia5-dev libqt5bluetooth5 libqt5bluetooth5-bin qtconnectivity5-dev pulseaudio librtaudio-dev
+error "Couldn't install all dependencies! Are you connected to the internet?"
+
+# Install raspbian dependencies
+log "Installing Raspbian dependencies"
+check "Are you building for Raspbian?"
+if [ $? == 1 ]
+then
+    sudo apt install -y libraspberrypi-doc libraspberrypi-dev
+else
+    log "Skipping Raspbian dependencies."
+fi
+error "Couldn't install Rasbian dependencies!"
 
 # Clone AASDK
 log "Cloning AASDK"
